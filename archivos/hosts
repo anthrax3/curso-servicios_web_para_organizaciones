@@ -43,7 +43,7 @@ svcms01 ansible_host=192.168.1.25 servidor_dd=10 servidor_ram=1024
 [servidores_lms]
 svlms01 ansible_host=192.168.1.26 servidor_dd=20 servidor_ram=1024
 
-[servidors_encuestas]
+[servidores_encuestas]
 svencuestas01 ansible_host=192.168.127 servidor_dd=10 servidor_ram=1024
 
 [servidores_bases_datos:children]
