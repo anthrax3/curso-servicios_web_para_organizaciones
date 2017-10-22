@@ -24,6 +24,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 for ARCHIVO_TARJETA in `find /etc/sysconfig/network-scripts/ -name "ifcfg-e[[:alnum:]]*[[:digit:]]"`;do
+  # Crea respaldo del archivo original
   cp $ARCHIVO_TARJETA $ARCHIVO_TARJETA-$(date "+%Y%m%d-%H%M%S")
 done
 
