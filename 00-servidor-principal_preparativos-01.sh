@@ -105,7 +105,7 @@ cat curso-servicios_web_para_organizaciones/archivos/hosts > /etc/ansible/hosts
 
 # Cambia la dirección IP del servidor_principal en /etc/ansible/hosts a la IP local
 DIRECCION_IP_LOCAL=`hostname -i | awk '{print $2}'`
-sed -i "s/192\.168\.1\.10/\${DIRECCION_IP_LOCAL}/g" /etc/ansible/hosts
+sed -i "s/192\.168\.1\.10/\sed -i "s/192\.168\.1\.10/`hostname -i | awk '{print $2}'`/g" /etc/ansible/hosts
 
 echo -ne "\n###############################################################################"
 echo -ne "\n# Fin de la instalación                                                       #"
