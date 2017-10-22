@@ -28,8 +28,8 @@ svpgsql01 ansible_host=192.168.1.20 servidor_dd=10 servidor_ram=1024
 [servidores_control_versiones]
 svgit01 ansible_host=192.168.1.21 servidor_dd=15 servidor_ram=1024
 
-[servidores_webstats]
-servidor-webstats ansible_host=192.168.1.22 servidor_dd=10 servidor_ram=1024
+[servidores_estadisticas_web]
+svwebstats01 ansible_host=192.168.1.22 servidor_dd=10 servidor_ram=1024
 
 [servidores_cmdb]
 svcmdb01 ansible_host=192.168.1.23 servidor_dd=10 servidor_ram=1024
@@ -58,7 +58,7 @@ servidores_bases_datos
 servidores_control_versiones
 
 [servidores_web:children]
-servidores_webstats
+servidores_estadisticas_web
 servidores_cmdb
 servidores_tickets
 servidores_cms
