@@ -1,7 +1,7 @@
 ---
 ###############################################################################
 # Nombre: 01-servidor-principal_preparativos-02.yaml
-# Descripción: Playbook para la instalación de Apache necesario para la 
+# Descripción: Playbook para la instalación de Apache necesario para la
 #              creación de las máquinas virtuales.
 #
 # Autor: Jorge A. Díaz Lara - jorge@integraci.com / jorge.diaz@gmail.com
@@ -22,15 +22,30 @@
 
     - name: Nos aseguramos que esté apache en el servidor
       service: name=httpd state=started
-      notify: restart httpd
+      notify: reinicia apache
 
     - name: Añadimos el servicio httpd a la configuración del firewall
       firewalld: service=http permanent=true state=enabled
-      notify: restart firewalld
+      notify: reinicia firewall
+
+    - name: Instalación del grupo de herramientas de virtualización en CentOS
+      when: ansible_distribution == "CentOS"
+      command: yum -y groupinstall --with-optional Virtualization warn=no
+
+    - name: Instalación del grupo de herramientas de virtualización en Fedora
+      when: ansible_distribution == "Fedora"
+      command: dnf -y groupinstall --with-optional Virtualization warn=no
+
+    - name: Activar el servicio de virtualización al arrancar el equipo
+      service: name=libvirtd state=started
+      notify: reinicia libvirt
 
   handlers:
-    - name: restart httpd
+    - name: reinicia apache
       service: name=httpd state=restarted enabled=yes
 
-    - name: restart firewalld
+    - name: reinicia firewall
       service: name=firewalld state=restarted enabled=yes
+
+    - name: reinicia libvirt
+      service: name=libvirtd state=restarted enable=yes
