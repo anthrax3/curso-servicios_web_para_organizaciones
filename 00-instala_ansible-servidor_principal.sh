@@ -10,6 +10,13 @@
 # Autor: Jorge A. Díaz Lara - jorge@integraci.com / jorge.diaz@gmail.com
 # Licencia: GPL Versión 2
 ###############################################################################
+echo -ne "\n###############################################################################"
+echo -ne "\n# Servicios Web para Organizaciones                                           #"
+echo -ne "\n# Instalación de Ansible en equipos Fedora y CentOS                           #"
+echo -ne "\n#                                                                             #"
+echo -ne "\n# Integra Conocimiento e Innovación - http://integraci.com.mx                 #"
+echo -ne "\n# contacto@integraci.com.mx                                                   #"
+echo -ne "\n###############################################################################\n\n"
 
 # Detección de usuario, se debe ejecutar como usuario root de lo contrario
 # termina la ejecución.
