@@ -1,0 +1,36 @@
+---
+###############################################################################
+# Nombre: 01-servidor-principal_preparativos-02.yaml
+# Descripción: Playbook para la instalación de Apache necesario para la 
+#              creación de las máquinas virtuales.
+#
+# Autor: Jorge A. Díaz Lara - jorge@integraci.com / jorge.diaz@gmail.com
+# Licencia: GPL Versión 3
+###############################################################################
+- name: Preparación de servidor principal para creación de máquinas virtuales
+  hosts: servidor-principal
+
+  tasks:
+    - name: Servidor apache en Servidor Principal
+      when: ansible_distribution == "CentOS"
+      yum: name=httpd state=latest warn=no
+
+    - name: Servidor apache en Servidor Principal
+      run_once: yes
+      when: ansible_distribution == "Fedora"
+      dnf: name=httpd state=latest warn=no
+
+    - name: Nos aseguramos que esté apache en el servidor
+      service: name=httpd state=started
+      notify: restart httpd
+
+    - name: Añadimos el servicio httpd a la configuración del firewall
+      firewalld: service=httpd permanent=true state=enabled
+      notify: restart firewalld
+
+    handlers:
+      - name: restart httpd
+        service: name=httpd state=restarted enabled=yes
+
+      - name: restart firewalld
+        service: name=firewalld state=restarted enabled=yes
