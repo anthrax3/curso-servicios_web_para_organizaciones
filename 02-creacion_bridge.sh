@@ -31,6 +31,7 @@ done
 if [ -e $ARCHIVO_TARJETA  ]; then
   # Lee el archivo con las variables de la tarjeta de red
   source $ARCHIVO_TARJETA
+  echo "\n\n\n$UUID, $NAME\n\n\n"
 else
   echo -ne "No se pudo obtener información!" >&2
   exit 1
@@ -38,7 +39,7 @@ fi
 
 # Creamos el archivo de configuración del puente de red
 # KVM requiere de un puente para la comunicación entre el host y guests.
-cat <<EOF> /etc/sysconfig/network-scripts/ifcfg-br0
+cat <<FIN> /etc/sysconfig/network-scripts/ifcfg-br0
 DEVICE=br0
 TYPE=Bridge
 IPADDR=192.168.1.X
@@ -51,13 +52,13 @@ NM_CONTROLLED=no
 DELAY=0
 DEFROUTE=yes
 NAME=br0
-EOF
+FIN
 
 # Cambiamos el valor de la dirección IP del puente
 sed -i "s/IPADDR=192\.168\.1\.X/IPADDR=`hostname -i | awk '{print $2}'`/g" /etc/sysconfig/network-scripts/ifcfg-br0
 
 # Volcamos la información al archivo de configuración de la tarjeta de red
-cat <<EOF> $ARCHIVO_TARJETA
+cat <<FIN> $ARCHIVO_TARJETA
 DEVICE=ethX
 TYPE=Ethernet
 BOOTPROTO=none
@@ -66,7 +67,7 @@ UUID=00000000000
 ONBOOT=yes
 NM_CONTROLLED=no
 BRIDGE=br0
-EOF 
+FIN
 
 # Cambiamos el valor del nombre
 sed -i "s/NAME=ethX/NAME=${NAME}/g" $ARCHIVO_TARJETA
