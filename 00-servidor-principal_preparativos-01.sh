@@ -46,32 +46,35 @@ if [ -e /etc/os-release ]; then
   # la distribución.
   case "${DISTRIBUCION}" in
     fedora)
-      # Instalamos Git
+      # Instalación Git
       dnf -y install git
 
-      # Instalamos Ansible
+      # Instalación de Ansible
       dnf -y install ansible
       
-      # Instalamos OpenSSH
+      # Instalación de OpenSSH
       dnf -y install openssh-server
       
-      # Iniciamos el servicio de SSH
+      # Iniciao del servicio SSH
       systemctl start sshd.service
       
-      # Hacemos que se ejecute SSH al arrancar el equipo
+      # Ejecución del servicio SSH al arrancar el equipo
       systemctl enable sshd.service
       
-      # Añadimos el servicio de SSH a las reglas del Firewall
+      # Se añade el servicio de SSH a las reglas del Firewall
       firewall-cmd --add-service=ssh --permanent
       
-      # Recargamos las reglas del Firewall
+      # Recarga de reglas del Firewall
       firewall-cmd --reload
       ;;
     centos)
-      # Instalamos Git
+      # Instalación de wget
+      yum -y install wget
+      
+      # Instalación de Git
       yum -y install git
       
-      # Instalamos Ansible
+      # Instalación de Ansible
       yum -y install ansible
       ;;
     *)
