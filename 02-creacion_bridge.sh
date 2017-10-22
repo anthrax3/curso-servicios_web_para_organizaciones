@@ -68,7 +68,7 @@ FIN
 sed -i "s/NAME=ethX/NAME=${DEVICE}/g" $ARCHIVO_TARJETA
 
 # Cambiamos el valor del dispositivo
-sed -i "s/DEVICE=ethX/$DEVICE=${DEVICE}/g" $ARCHIVO_TARJETA
+sed -i "s/DEVICE=ethX/DEVICE=${DEVICE}/g" $ARCHIVO_TARJETA
 
 # Cambiamos el valor de UUID
 sed -i "s/UUID=00000000000/UUID=${UUID}/g" $ARCHIVO_TARJETA
