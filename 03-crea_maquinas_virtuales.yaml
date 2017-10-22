@@ -16,6 +16,13 @@
     dir_scripts_crea_servidores: /home/administrador/Documentos/playbooks/scripts-servidores
   
   tasks:
+    - name: Descarga la imagen iso de CentOS 
+      get_url:
+      url: http://mirror.rackspace.com/CentOS/7/isos/x86_64/CentOS-7-x86_64-Minimal-1708.iso
+      dest: /var/lib/libvirt/images/CentOS-7-x86_64-Minimal-1708.iso
+      checksum: sha256:bba314624956961a2ea31dd460cd860a77911c1e0a56e4820a12b9c5dad363f5
+      delegate_to: "{{ groups.servidor_principal | first }}"
+      
     - name: Crea archivos kickstart para cada servidor virtual
       action: template src=plantillas/kickstart.cfg.j2 dest={{dir_archivos_kickstart}}/{{inventory_hostname}}.ks mode="u=rw,g=r,o=r"
       delegate_to: "{{ groups.servidor_principal | first }}"
