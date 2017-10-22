@@ -1,6 +1,8 @@
 #!/bin/bash -e
 ###############################################################################
-# Script para la instalación de Ansible en Fedora o CentOS
+# Nombre: 00-instala_ansible-servidor_principal.sh
+# Descripción: Script para la instalación de Ansible en Fedora o CentOS
+#
 # Nota: Se utiliza la opción -e en la llamada de bash para terminar en caso 
 #       de obtener un valor diferente a "0" como resultado de la ejecución de 
 #       los comandos del script.
