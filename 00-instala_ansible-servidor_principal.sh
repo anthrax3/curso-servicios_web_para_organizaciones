@@ -34,16 +34,14 @@ if [ -e /etc/os-release ]; then
   source /etc/os-release
   dist=$ID
 
-  echo -ne "Distribución: $PRETTY_NAME\n"
+  echo -ne "Distribución: $PRETTY_NAME\n\n"
 
   # Ejecuta los comandos de acuerdo a la distribución identificada
   case "${dist}" in
     fedora)
-      echo -ne "${dist}\n"
       dnf -y install ansible
       ;;
     centos)
-      echo -ne "${dist}\n"
       yum -y install ansible
       ;;
     *)
