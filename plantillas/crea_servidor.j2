@@ -6,7 +6,7 @@ virt-install \
 --nographics \
 --disk path=/var/lib/libvirt/images/{{inventory_hostname}}.qcow2,size=20,format=qcow2 \
 --location /var/lib/libvirt/images/CentOS-7-x86_64-DVD-1708.iso \
---extra-args="ks=http://{{ hostvars['servidor-principal']['ansible_host'] }}/{{inventory_hostname}}.ks console=tty0 console=ttyS0,115200n8 serial" \
+--extra-args="ks=http://{{ groups.servidor_principal | first }}/{{inventory_hostname}}.ks console=tty0 console=ttyS0,115200n8 serial" \
 --console pty,target_type=serial \
 --accelerate \
 --noautoconsole \
