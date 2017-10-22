@@ -34,6 +34,8 @@ if [ -e /etc/os-release ]; then
   source /etc/os-release
   dist=$ID
 
+  echo -ne "Distribución: $PRETTY_NAME\n"
+
   # Ejecuta los comandos de acuerdo a la distribución identificada
   case "${dist}" in
     fedora)
