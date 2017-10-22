@@ -16,7 +16,7 @@
     dir_scripts_crea_servidores: /home/administrador/Documentos/playbooks/scripts-servidores
   
   tasks:
-    - name: Descarga la imagen iso de CentOS 
+    - name: Descarga la imagen de CentOS - Ten paciencia - Ve por un café...
       run_once: yes
       get_url:
         url: http://mirror.rackspace.com/CentOS/7/isos/x86_64/CentOS-7-x86_64-Minimal-1708.iso
