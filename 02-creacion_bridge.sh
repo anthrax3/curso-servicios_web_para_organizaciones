@@ -34,7 +34,7 @@ done
 if [ -e $ARCHIVO_TARJETA  ]; then
   # Lee el archivo con las variables de la tarjeta de red
   source $ARCHIVO_TARJETA
-  echo "\n\n\n$UUID, $NAME\n\n\n"
+  echo "\n\n\n$UUID, $DEVICE\n\n\n"
 else
   echo -ne "No se pudo obtener información!" >&2
   exit 1
