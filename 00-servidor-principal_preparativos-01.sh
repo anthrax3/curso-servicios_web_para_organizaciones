@@ -53,11 +53,11 @@ if [ -e /etc/os-release ]; then
       # Instalación Git
       dnf -y install git
 
-      # Instalación
-      dnf -y install python-firewall
-
       # Instalación de Ansible
       dnf -y install ansible
+      
+      # Instalación de libreria para módulo firewalld de Ansible
+      dnf -y install python-firewall
       
       # Instalación de OpenSSH
       dnf -y install openssh-server
