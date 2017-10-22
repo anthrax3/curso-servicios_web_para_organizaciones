@@ -73,9 +73,6 @@ if [ -e /etc/os-release ]; then
       
       # Recarga de reglas del Firewall
       firewall-cmd --reload
-      
-      # Descarga el repositorio del curso
-      git clone https://github.com/jdiazmx/curso-servicios_web_para_organizaciones.git
       ;;
     centos)
       # Instalación de wget
@@ -86,9 +83,6 @@ if [ -e /etc/os-release ]; then
       
       # Instalación de Ansible
       yum -y install ansible
-      
-      # Descarga el repositorio del curso
-      git clone https://github.com/jdiazmx/curso-servicios_web_para_organizaciones.git
       ;;
     *)
       echo "La distribución \"$PRETTY_NAME\" no está soportada" >&2
@@ -99,3 +93,12 @@ else
   echo "No se pudo obtener información!" >&2
   exit 1
 fi
+
+# Descarga el repositorio del curso
+git clone https://github.com/jdiazmx/curso-servicios_web_para_organizaciones.git
+
+# Respalda el archivo /etc/ansible/hosts
+cp /etc/ansible/hosts /etc/ansible/hosts.old
+
+# Vuelca el contenido del archivo inventario del curso en el archivo /etc/ansible/hosts
+cat curso-servicios_web_para_organizaciones/archivos/hosts > /etc/ansible/hosts
