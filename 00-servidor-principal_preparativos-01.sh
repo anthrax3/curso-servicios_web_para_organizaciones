@@ -97,6 +97,9 @@ fi
 # Descarga el repositorio del curso
 git clone https://github.com/jdiazmx/curso-servicios_web_para_organizaciones.git
 
+# Cambia los permisos del directorio descargado con Git
+chown administrador:administrador -R curso-servicios_web_para_organizaciones
+
 # Respalda el archivo /etc/ansible/hosts
 cp /etc/ansible/hosts /etc/ansible/hosts.old
 
