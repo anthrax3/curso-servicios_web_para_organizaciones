@@ -9,7 +9,7 @@
 ###############################################################################
 
 - name: Creación de maquinas virtuales
-  hosts: servidores-virtuales
+  hosts: servidores_virtuales
   gather_facts: no
   vars:
     dir_archivos_kickstart: /var/www/html 
