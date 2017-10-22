@@ -1,0 +1,34 @@
+---
+###############################################################################
+# Nombre: 03-creacion_de_maquinas_virtuales.yaml
+# Descripcion: Playbook para la creación de máquinas virtuales con KVM
+# 
+# Autor: Jorge A. Díaz Lara - jorge@integraci.com.mx / jorge.diaz@gmail.com
+#
+# Licencia GPL.Versión 3
+###############################################################################
+
+- name: Creación de maquinas virtuales
+  hosts: servidores-virtuales
+  gather_facts: no
+  vars:
+    dir_archivos_kickstart: /var/www/html 
+    dir_scripts_crea_servidores: /home/administrador/Documentos/playbooks/scripts-servidores
+  
+  tasks:
+    - name: Crea archivos kickstart para cada servidor virtual
+      action: template src=plantillas/kickstart.cfg.j2 dest={{dir_archivos_kickstart}}/{{inventory_hostname}}.ks mode="u=rw,g=r,o=r"
+      delegate_to: servidor_principal
+
+    - name: Crea directorio para scripts de creación de servidores virtuales
+      run_once: yes
+      file: dest={{dir_scripts_crea_servidores}} recurse=yes state=directory mode=0755
+      delegate_to: servidor_principal
+
+    - name: Crea scripts para instalación de servidores virtuales
+      action: template src=plantillas/crea_servidor.j2 dest={{dir_scripts_crea_servidores}}/{{inventory_hostname}}.sh mode="u=rwx,g=r,o=r"
+      delegate_to: servidor_principal
+
+    - name: Crea Servidores Virtuales
+      script: "{{dir_scripts_crea_servidores}}/{{inventory_hostname}}.sh"
+      delegate_to: servidor_principal
