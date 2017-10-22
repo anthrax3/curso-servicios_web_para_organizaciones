@@ -11,10 +11,14 @@
 # Autor: Jorge A. Díaz Lara - jorge@integraci.com / jorge.diaz@gmail.com
 # Licencia: GPL Versión 2
 ###############################################################################
+
+# Limpiamos pantalla
+clear
+
 echo -ne "\n###############################################################################"
 echo -ne "\n# Servicios Web para Organizaciones                                           #"
-echo -ne "\n# Instalación de Git y Ansible en equipos Fedora y CentOS                     #"
-echo -ne "\n# Instalación de SSH para equipos con Fedora                                  #"
+echo -ne "\n# Instalación de git, ansible y wget en equipos y CentOS.                     #"
+echo -ne "\n# Instalación de git, ansible y openssh para equipos con Fedora.              #"
 echo -ne "\n#                                                                             #"
 echo -ne "\n# Integra Conocimiento e Innovación - http://integraci.com.mx                 #"
 echo -ne "\n#                                     contacto@integraci.com.mx               #"
