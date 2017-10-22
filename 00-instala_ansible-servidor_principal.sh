@@ -47,6 +47,7 @@ if [ -e /etc/os-release ]; then
       systemctl enable sshd.service
       ;;
     centos)
+      yum -y install git
       yum -y install ansible
       ;;
     *)
