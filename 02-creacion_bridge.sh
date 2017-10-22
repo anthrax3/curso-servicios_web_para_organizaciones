@@ -1,11 +1,7 @@
-#!/bin/bash -e
+#!/bin/bash
 ###############################################################################
 # Nombre: 02-creacion_bridge.sh
 # Descripción: Script para la creación de puente de red 
-#
-# Nota: Se utiliza la opción -e en la llamada de bash para terminar en caso 
-#       de obtener un valor diferente a "0" como resultado de la ejecución de 
-#       los comandos del script.
 #
 # Autor: Jorge A. Díaz Lara - jorge@integraci.com / jorge.diaz@gmail.com
 # Licencia: GPL Versión 2
@@ -27,10 +23,11 @@ if [[ $EUID -ne 0 ]]; then
     exit 1
 fi
 
-ARCHIVO_TARJETA=`find /etc/sysconfig/network-scripts/ -name "ifcfg-e[[:alnum:]]*[[:digit:]]"`
-echo $ARCHIVO_TARJETA
+for ARCHIVO_TARJETA in `find /etc/sysconfig/network-scripts/ -name "ifcfg-e[[:alnum:]]*[[:digit:]]"`;do
+  echo $ARCHIVO_TARJETA
+done
 
-if [ $ARCHIVO_TARJETA  ]; then
+if [ -e $ARCHIVO_TARJETA  ]; then
   # Lee el archivo con las variables de la tarjeta de red
   source $ARCHIVO_TARJETA
 else
