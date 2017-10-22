@@ -1,0 +1,17 @@
+{# proxy.sh.j2 #}
+# /etc/profile.d/proxy.sh
+# Configuración de proxy
+
+SERVIDOR_PROXY={{ hostvars['servidor-proxy']['ansible_host'] }}
+PUERTO=3128
+
+export {http,https,ftp}_proxy="http://$SERVIDOR_PROXY:$PUERTO/"
+export {HTTP,HTTPS,FTP}_PROXY="http://$SERVIDOR_PROXY:$PUERTO/"
+
+unset SERVIDOR_PROXY
+unset PUERTO
+
+
+
+
+

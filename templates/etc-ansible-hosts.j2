@@ -1,0 +1,70 @@
+###############################################################################
+# Nombre: etc-ansible-hosts 
+# Descripción: Archivo con el inventario de la infraestructura para curso - 
+#              Servicios Web para Ayuntamientos
+#
+# Autor: Jorge A. Díaz Lara - jorge.diaz@gmail.com / jorge@integraci.com.mx
+# Licencia GPL Versión 3
+###############################################################################
+
+[servidor_principal]
+sfvirt01 ansible_host=192.168.1.10
+
+[servidores_dns]
+svdns01 ansible_host=192.168.1.16 servidor_dd=5 servidor_ram=512
+
+[servidores_ntp]
+svntp01 ansible_host=192.168.1.17 servidor_dd=5 servidor_ram=512
+
+[servidores_proxy]
+svproxy01 ansible_host=192.168.1.18 servidor_dd=15 servidor_ram=1024
+
+[servidores_mariadb]
+svmariadb01 ansible_host=192.168.1.19 servidor_dd=10 servidor_ram=1024
+
+[servidores_postgresql]
+svpgsql01 ansible_host=192.168.1.20 servidor_dd=10 servidor_ram=1024
+
+[servidores_control_versiones]
+svgit01 ansible_host=192.168.1.21 servidor_dd=15 servidor_ram=1024
+
+[servidores_webstats]
+servidor-webstats ansible_host=192.168.1.22 servidor_dd=10 servidor_ram=1024
+
+[servidores_cmdb]
+svcmdb01 ansible_host=192.168.1.23 servidor_dd=10 servidor_ram=1024
+
+[servidores_tickets]
+svtickets01 ansible_host=192.168.1.24 servidor_dd=10 servidor_ram=1024
+
+[servidores_cms]
+svcms01 ansible_host=192.168.1.25 servidor_dd=10 servidor_ram=1024
+
+[servidores_lms]
+svlms01 ansible_host=192.168.1.26 servidor_dd=20 servidor_ram=1024
+
+[servidors_encuestas]
+svencuestas01 ansible_host=192.168.127 servidor_dd=10 servidor_ram=1024
+
+[servidores_bases_datos:children]
+servidores_mariadb
+servidores_postgresql
+
+[servidores-servicios:children]
+servidores_dns
+servidores_ntp
+servidores_proxy
+servidores_bases_datos
+servidores_control_versiones
+
+[servidores_web:children]
+servidores_webstats
+servidores_cmdb
+servidores_tickets
+servidores_cms
+servidores_lms
+servidores_encuestas
+
+[servidores-virtuales:children]
+servidores-servicios
+servidores-web
