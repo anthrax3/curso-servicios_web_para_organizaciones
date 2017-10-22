@@ -42,7 +42,7 @@ if [ -e /etc/os-release ]; then
     fedora)
       dnf -y install git
       dnf -y install ansible
-      dnf -y install sshd
+      dnf -y install openssh-server
       systemctl start sshd.service
       systemctl enable sshd.service
       ;;
