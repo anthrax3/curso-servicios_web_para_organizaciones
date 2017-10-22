@@ -8,7 +8,7 @@
 # Licencia: GPL Versión 3
 ###############################################################################
 - name: Preparación de servidor principal para creación de máquinas virtuales
-  hosts: servidor-principal
+  hosts: servidor_principal
 
   tasks:
     - name: Servidor apache en Servidor Principal
