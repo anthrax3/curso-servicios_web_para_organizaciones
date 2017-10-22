@@ -13,12 +13,12 @@
   tasks:
     - name: Servidor apache en Servidor Principal
       when: ansible_distribution == "CentOS"
-      yum: name=httpd state=latest warn=no
+      yum: name=httpd state=latest
 
     - name: Servidor apache en Servidor Principal
       run_once: yes
       when: ansible_distribution == "Fedora"
-      dnf: name=httpd state=latest warn=no
+      dnf: name=httpd state=latest
 
     - name: Nos aseguramos que esté apache en el servidor
       service: name=httpd state=started
