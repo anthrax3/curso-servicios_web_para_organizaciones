@@ -102,3 +102,7 @@ cp /etc/ansible/hosts /etc/ansible/hosts.old
 
 # Vuelca el contenido del archivo inventario del curso en el archivo /etc/ansible/hosts
 cat curso-servicios_web_para_organizaciones/archivos/hosts > /etc/ansible/hosts
+
+DIRECCION_IP_LOCAL=`hostname -i | awk '{print $2}'`
+echo -ne $DIRECCION_IP_LOCAL
+
