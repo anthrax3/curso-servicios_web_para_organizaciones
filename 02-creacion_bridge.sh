@@ -78,3 +78,5 @@ systemctl restart network
 
 # Iniciamos el servicio de red al arrancar el equipo
 systemctl enable network
+
+uset $ARCHIVO_TARJETA
