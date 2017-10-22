@@ -26,8 +26,9 @@ fi
 for ARCHIVO_TARJETA in `find /etc/sysconfig/network-scripts/ -name "ifcfg-e[[:alnum:]]*[[:digit:]]"`;do
   # Eliminar retorno de carro
   sed -i 's/\x0D$//' $ARCHIVO_TARJETA
+
   source $ARCHIVO_TARJETA
-  echo "\n\n\n$UUID, $DEVICE\n\n\n"
+
   # Crea respaldo del archivo original
   cp $ARCHIVO_TARJETA $ARCHIVO_TARJETA-$(date "+%Y%m%d-%H%M%S").bk
 done
