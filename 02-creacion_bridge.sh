@@ -26,19 +26,11 @@ fi
 for ARCHIVO_TARJETA in `find /etc/sysconfig/network-scripts/ -name "ifcfg-e[[:alnum:]]*[[:digit:]]"`;do
   # Eliminar retorno de carro
   sed -i 's/\x0D$//' $ARCHIVO_TARJETA
-  
+  source $ARCHIVO_TARJETA
+  echo "\n\n\n$UUID, $DEVICE\n\n\n"
   # Crea respaldo del archivo original
   cp $ARCHIVO_TARJETA $ARCHIVO_TARJETA-$(date "+%Y%m%d-%H%M%S")
 done
-
-if [ -e $ARCHIVO_TARJETA  ]; then
-  # Lee el archivo con las variables de la tarjeta de red
-  source $ARCHIVO_TARJETA
-  echo "\n\n\n$UUID, $DEVICE\n\n\n"
-else
-  echo -ne "No se pudo obtener información!" >&2
-  exit 1
-fi
 
 # Creamos el archivo de configuración del puente de red
 # KVM requiere de un puente para la comunicación entre el host y guests.
