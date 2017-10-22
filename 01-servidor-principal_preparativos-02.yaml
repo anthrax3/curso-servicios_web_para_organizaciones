@@ -25,7 +25,7 @@
       notify: restart httpd
 
     - name: Añadimos el servicio httpd a la configuración del firewall
-      firewalld: service=httpd permanent=true state=enabled
+      firewalld: service=http permanent=true state=enabled
       notify: restart firewalld
 
   handlers:
