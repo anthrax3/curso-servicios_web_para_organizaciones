@@ -28,9 +28,9 @@
       firewalld: service=httpd permanent=true state=enabled
       notify: restart firewalld
 
-    handlers:
-      - name: restart httpd
-        service: name=httpd state=restarted enabled=yes
+  handlers:
+    - name: restart httpd
+      service: name=httpd state=restarted enabled=yes
 
-      - name: restart firewalld
-        service: name=firewalld state=restarted enabled=yes
+    - name: restart firewalld
+      service: name=firewalld state=restarted enabled=yes
