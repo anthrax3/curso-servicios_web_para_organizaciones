@@ -19,7 +19,7 @@
     - name: Descarga la imagen iso de CentOS 
       run_once: yes
       get_url:
-      url: http://mirror.rackspace.com/CentOS/7/isos/x86_64/CentOS-7-x86_64-Minimal-1708.iso
+        url: http://mirror.rackspace.com/CentOS/7/isos/x86_64/CentOS-7-x86_64-Minimal-1708.iso
         dest: /var/lib/libvirt/images/CentOS-7-x86_64-Minimal-1708.iso
         checksum: sha256:bba314624956961a2ea31dd460cd860a77911c1e0a56e4820a12b9c5dad363f5
       delegate_to: "{{ groups.servidor_principal | first }}"
