@@ -103,6 +103,13 @@ cp /etc/ansible/hosts /etc/ansible/hosts.old
 # Vuelca el contenido del archivo inventario del curso en el archivo /etc/ansible/hosts
 cat curso-servicios_web_para_organizaciones/archivos/hosts > /etc/ansible/hosts
 
+# Cambia la dirección IP del servidor_principal en /etc/ansible/hosts a la IP local
 DIRECCION_IP_LOCAL=`hostname -i | awk '{print $2}'`
-echo -ne $DIRECCION_IP_LOCAL
+sed -i "s/192\.168\.1\.10/\$DIRECCION_IP_LOCAL/g" /etc/ansible/hosts
 
+echo -ne "\n###############################################################################"
+echo -ne "\n# Fin de la instalación                                                       #"
+echo -ne "\n#                                                                             #"
+echo -ne "\n# Integra Conocimiento e Innovación - http://integraci.com.mx                 #"
+echo -ne "\n#                                     contacto@integraci.com.mx               #"
+echo -ne "\n###############################################################################\n\n"
