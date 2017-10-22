@@ -30,7 +30,7 @@ for ARCHIVO_TARJETA in `find /etc/sysconfig/network-scripts/ -name "ifcfg-e[[:al
   source $ARCHIVO_TARJETA
 
   # Crea respaldo del archivo original
-  cp $ARCHIVO_TARJETA $ARCHIVO_TARJETA-$(date "+%Y%m%d-%H%M%S").bk
+  #cp $ARCHIVO_TARJETA $ARCHIVO_TARJETA-$(date "+%Y%m%d-%H%M%S").bk
 done
 
 # Creamos el archivo de configuración del puente de red
