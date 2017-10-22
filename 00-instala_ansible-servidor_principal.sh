@@ -16,7 +16,7 @@
 if [[ $EUID -ne 0 ]]; then
     echo -ne "\nPor favor ejecuta el script como usuario \"root\".\n"
     echo -ne "puedes utilizar el comando \"su\":\n"
-    echo -ne "$ su -c \"nombre_script.sh\"\n\n"
+    echo -ne "$ su -c \"00-instala_ansible-servidor_principal.sh\"\n\n"
     exit 1
 fi
 
