@@ -12,7 +12,8 @@
 ###############################################################################
 echo -ne "\n###############################################################################"
 echo -ne "\n# Servicios Web para Organizaciones                                           #"
-echo -ne "\n# Instalación de Ansible en equipos Fedora y CentOS                           #"
+echo -ne "\n# Instalación de Git y Ansible en equipos Fedora y CentOS                     #"
+echo -ne "\n# Instalación de SSH para equipos con Fedora                                  #"
 echo -ne "\n#                                                                             #"
 echo -ne "\n# Integra Conocimiento e Innovación - http://integraci.com.mx                 #"
 echo -ne "\n#                                     contacto@integraci.com.mx               #"
@@ -39,7 +40,11 @@ if [ -e /etc/os-release ]; then
   # Ejecuta los comandos de acuerdo a la distribución identificada
   case "${dist}" in
     fedora)
+      dnf -y install git
       dnf -y install ansible
+      dnf -y install sshd
+      systemctl start sshd.service
+      systemctl enable sshd.service
       ;;
     centos)
       yum -y install ansible
