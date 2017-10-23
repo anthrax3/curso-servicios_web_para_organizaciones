@@ -26,7 +26,7 @@
       
     - name: Crea archivos kickstart para cada servidor virtual
       action: template src=plantillas/kickstart.cfg.j2 dest={{dir_archivos_kickstart}}/{{inventory_hostname}}.ks mode="u=rw,g=r,o=r"
-      delegate_to: groups.servidor_principal
+      delegate_to: servidor_principal
 
     - name: Crea directorio para scripts de creación de servidores virtuales
       run_once: yes
