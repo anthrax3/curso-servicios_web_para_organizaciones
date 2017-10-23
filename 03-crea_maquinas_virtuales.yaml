@@ -35,7 +35,7 @@
 
     - name: Crea scripts para instalación de servidores virtuales
       action: template src=plantillas/crea_servidor.j2 dest={{dir_scripts_crea_servidores}}/{{inventory_hostname}}.sh mode="u=rwx,g=r,o=r"
-      delegate_to: groups.servidor_principal
+      delegate_to: servidor_principal
 
     - name: Crea Servidores Virtuales
       script: "{{dir_scripts_crea_servidores}}/{{inventory_hostname}}.sh"
