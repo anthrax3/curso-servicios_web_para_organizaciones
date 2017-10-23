@@ -22,22 +22,21 @@
         url: http://mirror.rackspace.com/CentOS/7/isos/x86_64/CentOS-7-x86_64-Minimal-1708.iso
         dest: /var/lib/libvirt/images/CentOS-7-x86_64-Minimal-1708.iso
         checksum: sha256:bba314624956961a2ea31dd460cd860a77911c1e0a56e4820a12b9c5dad363f5
-      delegate_to: servidor_principal
+      delegate_to: servidor-principal
       
     - name: Crea archivos kickstart para cada servidor virtual
       action: template src=plantillas/kickstart.cfg.j2 dest={{dir_archivos_kickstart}}/{{inventory_hostname}}.ks mode="u=rw,g=r,o=r"
-      delegate_to: servidor_principal
+      delegate_to: servidor-principal
 
     - name: Crea directorio para scripts de creación de servidores virtuales
       run_once: yes
       file: dest={{dir_scripts_crea_servidores}} recurse=yes state=directory mode=0755
-      delegate_to: servidor_principal
+      delegate_to: servidor-principal
 
     - name: Crea scripts para instalación de servidores virtuales
       action: template src=plantillas/crea_servidor.j2 dest={{dir_scripts_crea_servidores}}/{{inventory_hostname}}.sh mode="u=rwx,g=r,o=r"
-      delegate_to: servidor_principal
+      delegate_to: servidor-principal
 
     - name: Crea Servidores Virtuales
       script: "{{dir_scripts_crea_servidores}}/{{inventory_hostname}}.sh"
-      delegate_to: servidor_principal
-      
+      delegate_to: servidor-principal
