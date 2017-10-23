@@ -7,8 +7,7 @@
 # Licencia GPL Versión 3
 ###############################################################################
 
-[servidor_principal]
-sfvirt01 ansible_host=192.168.1.10
+servidor_principal ansible_host=192.168.1.10
 
 [servidores_dns]
 svdns01 ansible_host=192.168.1.16 servidor_dd=5 servidor_ram=512
