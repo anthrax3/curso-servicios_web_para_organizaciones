@@ -1,6 +1,6 @@
 #!/bin/bash -e
 ###############################################################################
-# Nombre: 00-servidor-principal_preparativos-01.sh
+# Nombre: 00-lab_servidor-principal.sh
 # Descripción: Script para la instalación de lo necesario para el el servidor
 #              principal del estudiante.
 #
