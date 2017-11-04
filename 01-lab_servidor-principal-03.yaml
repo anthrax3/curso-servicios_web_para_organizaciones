@@ -1,6 +1,6 @@
 ---
 ###############################################################################
-# Nombre: 01-servidor-principal_preparativos-02.yaml
+# Nombre: 01-lab_servidor-principal-03.yaml
 # Descripción: Playbook para la instalación de Apache necesario para la
 #              creación de las máquinas virtuales.
 #
