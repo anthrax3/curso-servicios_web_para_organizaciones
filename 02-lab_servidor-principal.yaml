@@ -30,7 +30,7 @@
 
     - name: Instalación del grupo de herramientas de virtualización en CentOS
       when: ansible_distribution == "CentOS"
-      command: yum -y groupinstall --with-optional Virtualization warn=no
+      command: yum -y groupinstall Virtualization warn=no
 
     - name: Instalación del grupo de herramientas de virtualización en Fedora
       when: ansible_distribution == "Fedora"
