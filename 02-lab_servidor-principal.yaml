@@ -28,9 +28,19 @@
       firewalld: service=http permanent=true state=enabled
       notify: reinicia firewall
 
-    - name: Instalación del grupo de herramientas de virtualización en CentOS
+    - name: Instalación de herramientas de virtualización en CentOS
       when: ansible_distribution == "CentOS"
-      command: yum -y groupinstall Virtualization warn=no
+      yum: name={{item}} state=latest
+      with_items:
+      - qemu-kvm
+      - qemu-img
+      - virt-manager
+      - libvirt
+      - libvirt-python
+      - libvirt-client
+      - virt-install
+      - virt-viewer
+      - bridge-utils
 
     - name: Instalación del grupo de herramientas de virtualización en Fedora
       when: ansible_distribution == "Fedora"
