@@ -26,7 +26,7 @@
 
     - name: Añadimos el servicio httpd a la configuración del firewall
       firewalld: 
-        zone: dmz
+        zone: public
         service: http
         permanent: true
         state: enabled
