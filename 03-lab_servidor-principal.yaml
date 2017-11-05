@@ -25,8 +25,12 @@
       notify: reinicia apache
 
     - name: Añadimos el servicio httpd a la configuración del firewall
-      firewalld: service=http permanent=true state=enabled
-      notify: reinicia firewall
+      firewalld: 
+        zone: dmz
+        service: http
+        permanent: true
+        state: enabled
+      notify: recarga firewall
 
     - name: Instalación de herramientas de virtualización en CentOS
       when: ansible_distribution == "CentOS"
@@ -54,7 +58,7 @@
     - name: reinicia apache
       service: name=httpd state=restarted enabled=yes
 
-    - name: reinicia firewall
+    - name: recarga firewall
       service: name=firewalld state=reloaded enabled=yes
 
     - name: reinicia libvirt
