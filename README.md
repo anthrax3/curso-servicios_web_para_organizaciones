@@ -1,6 +1,6 @@
-# Curso "Servicios Web para Organizaciones"
+# Servicios Web para Organizaciones
 
-## Requerimientos:
+## Requerimientos
 Equipo con CentOS
 - 100 G de Disco Duro
 - Procesador con soporte de virtualizacion - ver artículo URL:
