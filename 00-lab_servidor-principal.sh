@@ -112,6 +112,9 @@ sed -i "s/192\.168\.1\.10/`hostname -i | awk '{print $2}'`/g" /etc/ansible/hosts
 # Cambio de directorio de trabajo
 cd curso-servicios_web_para_organizaciones
 
+ansible-playbook 01-actualiza_archivo_hosts.yaml --extra-vars "dominio=integraci.com.mx" --user=root
+
+
 echo -ne "\n###############################################################################"
 echo -ne "\n# Fin de la instalación                                                       #"
 echo -ne "\n#                                                                             #"
