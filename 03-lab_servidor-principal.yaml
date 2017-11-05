@@ -55,7 +55,7 @@
       service: name=httpd state=restarted enabled=yes
 
     - name: reinicia firewall
-      service: name=firewalld state=restarted enabled=yes
+      service: name=firewalld state=reloaded enabled=yes
 
     - name: reinicia libvirt
       service: name=libvirtd state=restarted enable=yes
