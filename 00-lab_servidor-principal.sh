@@ -113,12 +113,10 @@ sed -i "s/192\.168\.1\.10/`hostname -i | awk '{print $2}'`/g" /etc/ansible/hosts
 cd curso-servicios_web_para_organizaciones
 
 bash 01-creacion_bridge.sh
-ansible-playbook 02-actualiza_archivo_hosts.yaml --extra-vars "dominio=integraci.com.mx" --user=root
-ansible-playbook 03-lab_servidor-principal.yaml --user=root
-ansible-playbook 04-crea_maquinas_virtuales.yaml --user=root
+ansible-playbook 02-actualiza_archivo_hosts.yaml --extra-vars "dominio=integraci.com.mx"
+ansible-playbook 03-lab_servidor-principal.yaml
+ansible-playbook 04-crea_maquinas_virtuales.yaml
 # ansible-playbook 05-lab_actualizacion_servidor.yaml
-
-
 
 echo -ne "\n###############################################################################"
 echo -ne "\n# Fin de la instalación                                                       #"
