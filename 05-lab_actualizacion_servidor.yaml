@@ -41,8 +41,3 @@
     poll: 0
     ignore_errors: true
     when: reinicio_sugerido.stdout.find("reiniciar") != -1
-    register: reiniciando
-
-  - name: Esperar antes del reinicio...
-    wait_for: delay=45
-    when: reiniciando|changed
