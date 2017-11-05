@@ -1,6 +1,6 @@
 #!/bin/bash
 ###############################################################################
-# Nombre: 03-creacion_bridge.sh
+# Nombre: 04-creacion_bridge.sh
 # Descripción: Script para la creación de puente de red 
 #
 # Autor: Jorge A. Díaz Lara - jorge@integraci.com / jorge.diaz@gmail.com
