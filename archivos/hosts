@@ -7,8 +7,15 @@
 # Licencia GPL Versión 3
 ###############################################################################
 
+# Variables
+[all:vars]
+ansible_ssh_user=root
+ansible_ssh_pass=password
+
+# Servidor Local 
 servidor-principal ansible_host=192.168.1.10
 
+# Grupos de Servidores
 [servidores_dns]
 svdns01 ansible_host=192.168.1.16 servidor_dd=5 servidor_ram=512
 
