@@ -9,4 +9,11 @@ Equipo
 
 
 ## Uso
+####Crea Llaves SSH
+\# mkdir ~/.ssh
+\# chmod 700 ~/.ssh
+\# ssh-keygen -t rsa
+\# ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.1.10
+
+## Ejecuta el Script
 \$ su -c "curl -sSL https://jdiazmx.github.io/curso-servicios_web_para_organizaciones/00-lab_servidor-principal.sh | bash"
