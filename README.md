@@ -1,11 +1,12 @@
 # Servicios Web para Organizaciones
 ## Requerimientos
-Equipo con CentOS
-- 100 G de Disco Duro
+Equipo 
+- 100 G de Disco Duro disponibles
 - Procesador con soporte de virtualizacion - ver artículo URL:
+- Sistema Operativo CentOS con GUI
 
 
-## Creación de Llaves SSH
+## Crea la llave de SSH del servidor
 - mkdir ~/.ssh
 - chmod 700 ~/.ssh
 - ssh-keygen -t rsa
