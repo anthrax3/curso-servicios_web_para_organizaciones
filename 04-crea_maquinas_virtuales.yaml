@@ -1,6 +1,6 @@
 ---
 ###############################################################################
-# Nombre: 05-crea_maquinas_virtuales.yaml
+# Nombre: 04-crea_maquinas_virtuales.yaml
 # Descripcion: Playbook para la creación de máquinas virtuales con KVM
 # 
 # Autor: Jorge A. Díaz Lara - jorge@integraci.com.mx / jorge.diaz@gmail.com
