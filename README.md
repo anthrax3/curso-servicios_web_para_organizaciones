@@ -9,4 +9,4 @@ Equipo
 
 
 ## Uso
-\# su -c "curl -sSL https://jdiazmx.github.io/curso-servicios_web_para_organizaciones/00-lab_servidor-principal.sh | bash"
+\$ su -c "curl -sSL https://jdiazmx.github.io/curso-servicios_web_para_organizaciones/00-lab_servidor-principal.sh | bash"
