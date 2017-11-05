@@ -11,8 +11,11 @@ Equipo
 ## Uso
 #### Crea Llaves SSH
 \# mkdir ~/.ssh
+
 \# chmod 700 ~/.ssh
+
 \# ssh-keygen -t rsa
+
 \# ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.1.10
 
 ## Ejecuta el Script
