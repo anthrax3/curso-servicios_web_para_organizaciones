@@ -1,11 +1,11 @@
-##Curso "Servicios Web para Organizaciones"
+Curso "Servicios Web para Organizaciones"
 
-#Requerimientos:
+Requerimientos:
 Equipo con CentOS
 - 100 G de Disco Duro
 - Procesador con soporte de virtualizacion - ver artículo URL:
 
-#Creación de Llaves SSH
+Creación de Llaves SSH
 
 mkdir ~/.ssh
 chmod 700 ~/.ssh
