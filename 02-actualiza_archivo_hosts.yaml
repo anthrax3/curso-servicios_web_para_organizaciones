@@ -1,3 +1,11 @@
+---
+###############################################################################
+# Nombre: 02-actualiza_archivo_hosts.yaml
+# Descripción: Playbook para la actualizacion archivo hosts
+#
+# Autor: Jorge A. Díaz Lara - jorge@integraci.com / jorge.diaz@gmail.com
+# Licencia: GPL Versión 3
+###############################################################################
 - name: Creación de archivo /etc/hosts
   hosts: all
   gather_facts: no
