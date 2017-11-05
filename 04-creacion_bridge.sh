@@ -38,7 +38,7 @@ done
 cat <<FIN> /etc/sysconfig/network-scripts/ifcfg-br0
 DEVICE=br0
 TYPE=Bridge
-IPADDR=192.168.1.X
+IPADDR=192.168.1.10
 PREFIX=24
 GATEWAY=192.168.1.254
 DNS1=8.8.8.8
@@ -49,9 +49,6 @@ DELAY=0
 DEFROUTE=yes
 NAME=br0
 FIN
-
-# Cambiamos el valor de la dirección IP del puente
-sed -i "s/IPADDR=192\.168\.1\.X/IPADDR=`hostname -i | awk '{print $2}'`/g" /etc/sysconfig/network-scripts/ifcfg-br0
 
 # Volcamos la información al archivo de configuración de la tarjeta de red
 cat <<FIN> $ARCHIVO_TARJETA
