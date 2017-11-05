@@ -3,11 +3,6 @@
   gather_facts: no
 
   tasks:
-    - name: Obtener nombre de dominio
-      run_once: True
-      shell: hostname -d
-      register: dominio
-   
     - name: Crea archivos kickstart para los servidores virtuales 
       shell: echo -ne "\n{{ansible_host}}\t{{inventory_hostname}}.{{dominio}}\t{{inventory_hostname}}\n" >> /etc/hosts
       delegate_to: servidor-principal
