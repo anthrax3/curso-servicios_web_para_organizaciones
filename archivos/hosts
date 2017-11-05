@@ -32,16 +32,16 @@ svgit01 ansible_host=192.168.1.21 servidor_dd=20 servidor_ram=1024
 svwebstats01 ansible_host=192.168.1.22 servidor_dd=20 servidor_ram=1024
 
 [servidores_cmdb]
-svcmdb01 ansible_host=192.168.1.23 servidor_dd=16 servidor_ram=1024
+svcmdb01 ansible_host=192.168.1.23 servidor_dd=20 servidor_ram=1024
 
 [servidores_tickets]
-svtickets01 ansible_host=192.168.1.24 servidor_dd=17 servidor_ram=1024
+svtickets01 ansible_host=192.168.1.24 servidor_dd=20 servidor_ram=1024
 
 [servidores_cms]
-svcms01 ansible_host=192.168.1.25 servidor_dd=18 servidor_ram=1024
+svcms01 ansible_host=192.168.1.25 servidor_dd=20 servidor_ram=1024
 
 [servidores_lms]
-svlms01 ansible_host=192.168.1.26 servidor_dd=19 servidor_ram=1024
+svlms01 ansible_host=192.168.1.26 servidor_dd=20 servidor_ram=1024
 
 [servidores_encuestas]
 svencuestas01 ansible_host=192.168.1.27 servidor_dd=20 servidor_ram=1024
